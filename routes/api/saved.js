@@ -19,24 +19,16 @@ router
     db.Article.create(req.body).then(() => {
       res.json(req.body);
     });
-  })
-  .delete((req, res) => {
-    db.Article
-      // .findById({ _id: req.params.id })
-      .findById({ _id: req.body.id })
-      .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
   });
 
 // Matches with "/api/saved/:id"
-// router.route("/:id").delete((req, res) => {
-//   db.Article
-//     // .findById({ _id: req.params.id })
-//     .findById({ _id: req.body.id })
-//     .then(dbModel => dbModel.remove())
-//     .then(dbModel => res.json(dbModel))
-//     .catch(err => res.status(422).json(err));
-// });
+router.route("/:id").delete((req, res) => {
+  db.Article
+    .findById({ _id: req.params.id })
+    // .findById({ _id: req.body.id })
+    .then(dbModel => dbModel.remove())
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
+});
 
 module.exports = router;
