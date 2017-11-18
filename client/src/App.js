@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
+import Main from "./components/Main";
 
-const App = () => {
-  return <h1> Yo what up</h1>;
-};
+const App = () => <Main />;
 
 export default App;
