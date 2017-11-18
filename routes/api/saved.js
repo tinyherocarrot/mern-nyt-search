@@ -20,13 +20,23 @@ router
       res.json(req.body);
     });
   })
-  .delete();
+  .delete((req, res) => {
+    db.Article
+      // .findById({ _id: req.params.id })
+      .findById({ _id: req.body.id })
+      .then(dbModel => dbModel.remove())
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  });
 
-// Matches with "/api/books/:id"
-// router
-//   .route("/:id")
-//   .get(booksController.findById)
-//   .put(booksController.update)
-//   .delete(booksController.remove);
+// Matches with "/api/saved/:id"
+// router.route("/:id").delete((req, res) => {
+//   db.Article
+//     // .findById({ _id: req.params.id })
+//     .findById({ _id: req.body.id })
+//     .then(dbModel => dbModel.remove())
+//     .then(dbModel => res.json(dbModel))
+//     .catch(err => res.status(422).json(err));
+// });
 
 module.exports = router;
