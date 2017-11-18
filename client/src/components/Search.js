@@ -37,6 +37,7 @@ class Search extends Component {
                   className="input"
                   type="text"
                   placeholder="Search by topic"
+                  name="topic"
                   onChange={this.handleInputChange}
                 />
               </div>
@@ -49,6 +50,7 @@ class Search extends Component {
                     className="input"
                     type="text"
                     placeholder="Start Year"
+                    name="startYr"
                     onChange={this.handleInputChange}
                   />
                 </p>
@@ -62,6 +64,7 @@ class Search extends Component {
                     className="input"
                     type="text"
                     placeholder="End Year"
+                    name="endYr"
                     onChange={this.handleInputChange}
                   />
                 </p>
@@ -70,7 +73,12 @@ class Search extends Component {
             </div>
 
             <div className="control has-text-right">
-              <button className="button is-link">Submit</button>
+              <button
+                className="button is-link"
+                onClick={this.handleFormSubmit}
+              >
+                Submit
+              </button>
             </div>
           </div>
         </section>
