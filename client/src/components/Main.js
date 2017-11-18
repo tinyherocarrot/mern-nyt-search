@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Hero from "./Hero";
 import Saved from "./Saved";
 import Search from "./Search";
 
@@ -11,16 +12,7 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <section className="hero">
-          <div className="hero-body">
-            <div className="container">
-              <h1 className="title">NYT Article Finder</h1>
-              <h2 className="subtitle">
-                Search and save articles like a winner.
-              </h2>
-            </div>
-          </div>
-        </section>
+        <Hero />
         <Search />
         <Saved />
       </div>
