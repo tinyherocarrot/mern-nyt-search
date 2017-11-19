@@ -21,8 +21,8 @@ class Search extends Component {
     if (this.state.topic) {
       API.getArticles(this.state.topic, this.state.startYr, this.state.endYr)
         .then(res => {
-          console.log(res);
-          this.setState({ articles: res.data });
+          console.log(res.data.response.docs);
+          this.setState({ articles: res.data.response.docs });
         })
         .catch(err => console.log(err));
     }

@@ -2,11 +2,11 @@ import axios from "axios";
 
 export default {
   getArticles: (topic, startYr, endYr) => {
-    const KEY = "083040deb76744ca8c92a2ec79536c0d";
-    const START = startYr ? startYr + "0101" : "";
-    const END = endYr ? endYr + "0101" : "";
-    const url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=${KEY}&q=${topic}`;
-    // &begin_date=${START}&end_date=${END}
+    const KEY = "api-key=083040deb76744ca8c92a2ec79536c0d";
+    const query = `&q=${topic}`;
+    const START = startYr ? `&begin_date=${startYr}0101` : "";
+    const END = endYr ? `&end_date=${endYr}0101` : "";
+    const url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?${KEY}${query}${START}${END}`;
     return axios.get(url);
   },
   getSaved: () => {
