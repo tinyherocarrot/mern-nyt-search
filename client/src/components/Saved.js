@@ -1,26 +1,16 @@
 import React, { Component } from "react";
 import DeleteBtn from "./DeleteBtn";
-import API from "../utils/API";
+// import API from "../utils/API";
 
 class Saved extends Component {
-  state = {
-    savedArticles: []
-  };
+  // this.props.savedArticles
 
-  componentDidMount = () => {
-    this.loadSaved();
-  };
-
-  loadSaved = () => {
-    API.getSaved()
-      .then(res => this.setState({ savedArticles: res.data }))
-      .catch(err => console.log(err));
-  };
+  // componentDidMount = () => {
+  //   this.loadSaved();
+  // };
 
   handleDelete = id => {
-    API.deleteSaved(id)
-      .then(res => this.loadSaved())
-      .catch(err => console.log(err));
+    this.props.handleDelete(id);
   };
 
   render() {
@@ -28,9 +18,9 @@ class Saved extends Component {
       <div>
         <section className="section" id="saved-section">
           <div className="box">
-            {this.state.savedArticles.length ? (
+            {this.props.savedArticles.length ? (
               <ul>
-                {this.state.savedArticles.map((item, i) => {
+                {this.props.savedArticles.map((item, i) => {
                   return (
                     <li key={i}>
                       <div className="box">

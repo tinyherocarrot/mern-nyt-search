@@ -29,11 +29,8 @@ class Search extends Component {
   };
 
   handleSave = (title, url) => {
+    this.props.handleSave(title, url);
     console.log(title, url);
-    API.saveArticle({
-      title: title,
-      url: url
-    });
   };
 
   render() {
@@ -112,7 +109,10 @@ class Search extends Component {
                           className="button is-primary save-button"
                           style={{ marginTop: 8 }}
                           onClick={() =>
-                            this.handleSave(item.headline.main, item.web_url)}
+                            this.props.handleSave(
+                              item.headline.main,
+                              item.web_url
+                            )}
                         >
                           Save
                         </button>
