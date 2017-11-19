@@ -34,7 +34,9 @@ class Saved extends Component {
                   return (
                     <li key={i}>
                       <div className="box">
-                        {/* <DeleteBtn onClick={this.handleDelete(item._id)} /> */}
+                        <DeleteBtn
+                          onClick={() => this.handleDelete(item._id)}
+                        />
                         <h1>
                           <a href={item.url} target="_blank">
                             <strong>{item.title}</strong>
