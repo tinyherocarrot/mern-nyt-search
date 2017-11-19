@@ -19,8 +19,11 @@ class Search extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.topic) {
-      API.getArticles()
-        .then(res => this.setState({ articles: res.data }))
+      API.getArticles(this.state.topic, this.state.startYr, this.state.endYr)
+        .then(res => {
+          console.log(res);
+          this.setState({ articles: res.data });
+        })
         .catch(err => console.log(err));
     }
   };
