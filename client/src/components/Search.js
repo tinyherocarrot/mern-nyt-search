@@ -89,7 +89,18 @@ class Search extends Component {
         <section className="section" id="results-section">
           <div className="box">
             {this.state.articles.length ? (
-              <ul>{this.state.articles.map(item => {})}</ul>
+              <ul>
+                {this.state.articles.map((item, i) => {
+                  return (
+                    <li key={i}>
+                      <h1>
+                        <a href={item.web_url}> {item.headline.main}</a>
+                      </h1>
+                      <p>{item.pub_date}</p>
+                    </li>
+                  );
+                })}
+              </ul>
             ) : (
               <p> No Results to Display</p>
             )}
