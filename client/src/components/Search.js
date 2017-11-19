@@ -93,6 +93,7 @@ class Search extends Component {
 
         <section className="section" id="results-section">
           <div className="box">
+            <h5 className="title is-5">Search Results</h5>
             {this.state.articles.length ? (
               <ul>
                 {this.state.articles.map((item, i) => {
@@ -109,10 +110,7 @@ class Search extends Component {
                           className="button is-primary save-button"
                           style={{ marginTop: 8 }}
                           onClick={() =>
-                            this.props.handleSave(
-                              item.headline.main,
-                              item.web_url
-                            )}
+                            this.handleSave(item.headline.main, item.web_url)}
                         >
                           Save
                         </button>

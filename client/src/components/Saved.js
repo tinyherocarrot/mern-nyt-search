@@ -3,12 +3,6 @@ import DeleteBtn from "./DeleteBtn";
 // import API from "../utils/API";
 
 class Saved extends Component {
-  // this.props.savedArticles
-
-  // componentDidMount = () => {
-  //   this.loadSaved();
-  // };
-
   handleDelete = id => {
     this.props.handleDelete(id);
   };
@@ -18,6 +12,7 @@ class Saved extends Component {
       <div>
         <section className="section" id="saved-section">
           <div className="box">
+            <h5 className="title is-5">Saved Articles</h5>
             {this.props.savedArticles.length ? (
               <ul>
                 {this.props.savedArticles.map((item, i) => {
