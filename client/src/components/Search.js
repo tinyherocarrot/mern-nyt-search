@@ -30,8 +30,11 @@ class Search extends Component {
 
   handleSave = (title, url) => {
     console.log(title, url);
+    API.saveArticle({
+      title: title,
+      url: url
+    });
   };
-  handleDelete = () => {};
 
   render() {
     return (

@@ -17,6 +17,7 @@ router
   // save an article to the database
   .post((req, res) => {
     db.Article.create(req.body).then(() => {
+      console.log(req.body);
       res.json(req.body);
     });
   });
