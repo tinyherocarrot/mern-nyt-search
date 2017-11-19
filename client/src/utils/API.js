@@ -9,6 +9,9 @@ export default {
     const url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?${KEY}${query}${START}${END}`;
     return axios.get(url);
   },
+  saveArticle: articleData => {
+    return axios.post("/api/saved", articleData);
+  },
   getSaved: () => {
     return axios.get("/api/saved");
   },

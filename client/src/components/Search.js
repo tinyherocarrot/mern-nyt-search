@@ -28,6 +28,11 @@ class Search extends Component {
     }
   };
 
+  handleSave = (title, url) => {
+    console.log(title, url);
+  };
+  handleDelete = () => {};
+
   render() {
     return (
       <div>
@@ -93,10 +98,22 @@ class Search extends Component {
                 {this.state.articles.map((item, i) => {
                   return (
                     <li key={i}>
-                      <h1>
-                        <a href={item.web_url}> {item.headline.main}</a>
-                      </h1>
-                      <p>{item.pub_date}</p>
+                      <div className="box">
+                        <h1>
+                          <a href={item.web_url} target="_blank">
+                            <strong>{item.headline.main}</strong>
+                          </a>
+                        </h1>
+                        <p>{item.snippet}</p>
+                        <button
+                          className="button is-primary save-button"
+                          style={{ marginTop: 8 }}
+                          onClick={() =>
+                            this.handleSave(item.headline.main, item.web_url)}
+                        >
+                          Save
+                        </button>
+                      </div>
                     </li>
                   );
                 })}
